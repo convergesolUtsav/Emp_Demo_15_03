@@ -1,0 +1,14 @@
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\bin\Debug\net7.0\Emp_Core.deps.json
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\bin\Debug\net7.0\Emp_Core.runtimeconfig.json
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\bin\Debug\net7.0\Emp_Core.dll
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\bin\Debug\net7.0\Emp_Core.pdb
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\Emp_Core.csproj.AssemblyReference.cache
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\Emp_Core.GeneratedMSBuildEditorConfig.editorconfig
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\Emp_Core.AssemblyInfoInputs.cache
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\Emp_Core.AssemblyInfo.cs
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\Emp_Core.csproj.CoreCompileInputs.cache
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\Emp_Core.dll
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\refint\Emp_Core.dll
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\Emp_Core.pdb
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\Emp_Core.genruntimeconfig.cache
+G:\EmployeeDemo_15-03\employee_demo\Emp_Core\obj\Debug\net7.0\ref\Emp_Core.dll

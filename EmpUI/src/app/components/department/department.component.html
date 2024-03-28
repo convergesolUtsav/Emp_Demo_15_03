@@ -1,0 +1,29 @@
+<div class="container p-5">
+  <div class="card">
+    <div class="card-header">
+    <h3>Create Department</h3>
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item">
+    <form [formGroup] = "departmentForm" (ngSubmit)="onSubmit(departmentForm.value)">
+        <div class="row">
+         <div class="col-12">
+        <div class="form-group">
+        <label for="name">Department Name:</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <span *ngIf="departmentForm.controls['name'].invalid && departmentForm.controls['name'].touched " class="text-danger">Name is Required</span>
+
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="isActive" formControlName="isActive">
+        <label class="form-check-label" for="isActive">Active</label>
+      </div>
+      </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </li>
+</ul>
+</div>  
+  </div>

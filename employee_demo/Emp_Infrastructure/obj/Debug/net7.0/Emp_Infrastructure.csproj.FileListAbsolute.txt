@@ -1,0 +1,17 @@
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\bin\Debug\net7.0\Emp_Infrastructure.deps.json
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\bin\Debug\net7.0\Emp_Infrastructure.runtimeconfig.json
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\bin\Debug\net7.0\Emp_Infrastructure.dll
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\bin\Debug\net7.0\Emp_Infrastructure.pdb
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\bin\Debug\net7.0\Emp_Core.dll
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\bin\Debug\net7.0\Emp_Core.pdb
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\Emp_Infrastructure.csproj.AssemblyReference.cache
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\Emp_Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\Emp_Infrastructure.AssemblyInfoInputs.cache
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\Emp_Infrastructure.AssemblyInfo.cs
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\Emp_Infrastructure.csproj.CoreCompileInputs.cache
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\Emp_Infrastructure.csproj.CopyComplete
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\Emp_Infrastructure.dll
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\refint\Emp_Infrastructure.dll
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\Emp_Infrastructure.pdb
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\Emp_Infrastructure.genruntimeconfig.cache
+G:\EmployeeDemo_15-03\employee_demo\Emp_Infrastructure\obj\Debug\net7.0\ref\Emp_Infrastructure.dll

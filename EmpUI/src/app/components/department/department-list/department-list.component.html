@@ -1,0 +1,74 @@
+<!-- List Of Department -->
+<div class="card">
+    <div class="card-header">
+      <h3>Department List</h3>
+    </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <form class="form-Group">
+              <button class="btn btn-primary m-1 " [routerLink]="'/department'">Create Department</button>
+              <table class="table table-striped">
+              <thead class="bg-success">
+
+                <tr class="table-primary"> 
+                    
+                   <th scope="col">DepartmentName</th>
+                  <th scope="col">IsActive</th>
+                  <th scope="col">Actions</th>
+                
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let item of departments"> 
+                  <td>{{item.name}}</td>
+                  <td>{{item.isActive ? "Yes":"No"}}</td>
+                  <td>
+                 <button class="btn btn-primary mx-2 my-2" value={{item.id}} [routerLink]="'/department-edit/' + item.id">Edit</button>
+                 
+                 <button class="btn btn-danger mx-2 my-2"(click)="open(DeleteDepartment,item.id)">
+                Delete</button>
+
+                </td>
+                </tr>
+              </tbody>
+            </table>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+
+
+
+  <!--Delete Department modal  -->
+  <ng-template #DeleteDepartment let-modal2>
+   
+    <div class="modal-header">
+        <h5 class="modal-title"><img src="https://imgur.com/Kh1gwTq.png">Are you sure, delete this department ?</h5>
+       
+    </div>
+    <div class="modal-body">
+        <table>
+            <tr>
+               
+                <th scope="col">Department Name :</th>
+                <td>{{department.name}} </td>
+            </tr>
+            <tr><th scope="col">
+               Is Active :</th>
+                <td>{{department.isActive ? "Yes":"No"}}
+            </td></tr>
+        </table>
+    </div>
+    <div class="mt-auto form-Group">
+    </div>
+    <div class="modal-footer d-flex justify-content-between">
+        <form (submit)="modal2.dismiss()">
+            <input type="hidden"  name="Id" #DeleteDepartmentId ngModel={{department.id}} />
+            <button type="submit"  class="btn btn-danger" (click)="deleteDepartment(DeleteDepartmentId.value)">Delete Department</button>
+        </form>
+        <button type="button" class="btn btn-secondary" (click)="modal2.close('Close click')">Close</button>
+    </div>
+    </ng-template>

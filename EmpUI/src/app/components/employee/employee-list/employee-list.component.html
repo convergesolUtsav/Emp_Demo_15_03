@@ -1,0 +1,268 @@
+
+<!-- List Of Employee -->
+<div class="card">
+    <div class="card-header">
+      <h3>Employee List</h3>
+    </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+          <button class="btn btn-primary m-1 " [routerLink]="'/employee-create'">Create Employee</button>
+            <form class="form-Group">
+              <table class="table table-striped">
+              <thead class="bg-success">
+                <tr class="table-primary">   
+                   <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">DateOfBirth</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">EmailAddress</th>
+                  <th scope="col">PhoneNumber</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Salary</th>
+                  <th scope="col">DateHired</th>
+                  <th scope="col">EmploymentStatus</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let item of employees"> 
+                  <td>{{item.firstName}}</td>
+                  <td>{{item.lastName}}</td>
+                  <td>{{item.dateOfBirth | date}}</td>
+                  <td>{{item.gender}}</td>
+                  <td>{{item.emailAddress}}</td>
+                  <td>{{item.phoneNumber}}</td>
+               
+                  <td>{{item.position}}</td>
+                  <td>{{item.salary}}</td>
+                  <td>{{item.dateHired | date}}</td>
+                 
+                  <td>{{getEmpStatus(item.employmentStatus)}}</td>
+                  <td>
+                 <button class="btn btn-success mx-2 my-2" value={{item.id}} [routerLink]="'/employee-edit/' + item.id">Edit</button>
+                 <button class="btn btn-danger mx-2 my-2"(click)="open(DeleteEmployee,item.id)">
+                Delete</button>
+        <button class="btn btn-primary mx-2 my-2"(click)="open(ViewEmployee,item.id)">
+                View</button>
+                </td>
+                </tr>
+              </tbody>
+            </table>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+<!--View Employee-->
+    <ng-template #ViewEmployee let-modal>
+        <div class="modal-header">
+            <h5 class="modal-title">View Employee Details</h5>
+            
+        </div>
+        <div class="modal-body">
+            <h4>Employee Information</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <td>First Name</td>
+                        <td>{{selectedEmployee?.firstName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>{{selectedEmployee?.lastName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td>{{selectedEmployee?.dateOfBirth | date}}</td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>{{selectedEmployee?.gender }}</td>
+                    </tr>
+                    <tr>
+                        <td>EmailAddress</td>
+                        <td>{{selectedEmployee?.emailAddress}}</td>
+                    </tr>
+                    <tr>
+                        <td>PhoneNumber</td>
+                        <td>{{selectedEmployee?.phoneNumber}}</td>
+                    </tr>
+                    <tr>
+                        <td>DepartmentID</td>
+                        <td>{{ getDepartmentName(selectedEmployee.department)}}</td>
+                    </tr>
+                    <tr>
+                        <td>Salary</td>
+                        <td>{{selectedEmployee?.salary}}</td>
+                    </tr>
+                    <tr>
+                        <td>Position</td>
+                        <td>{{selectedEmployee?.position}}</td>
+                    </tr>
+                    <tr>
+                        <td>DateHired</td>
+                        <td>{{selectedEmployee?.dateHired | date}}</td>
+                    </tr>
+                    <tr>
+                        <td>SupervisorId</td>
+                        <td>{{selectedEmployee?.supervisorId }}</td>
+                    </tr>
+                    <tr>
+                        <td>EmploymentStatus</td>
+                        <td>{{getEmpStatus(selectedEmployee?.employmentStatus)}}</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+            <div *ngFor="let employee of selectedEmployee.addresses; let i = index">
+            <h4>Address-{{i+1}}</h4>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Street</td>
+                        <td>{{employee.street}}</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>{{employee.city}}</td>
+                    </tr>
+                    <tr>
+                        <td>State</td>
+                        <td>{{employee.state}}</td>
+                    </tr>
+                    <tr>
+                        <td>Zip</td>
+                        <td>{{employee.zip}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+            <h4>Emergency Contact</h4>
+            <table class="table table-striped" *ngIf="selectedEmployee.emergencyContacts && selectedEmployee.emergencyContacts.length > 0">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>personName</td>
+                        <td>{{selectedEmployee.emergencyContacts[0].personName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>{{selectedEmployee.emergencyContacts[0].phoneNumber}}</td>
+                    </tr>
+                    <tr>
+                        <td>Relation</td>
+                        <td>{{selectedEmployee.emergencyContacts[0].relation}}</td>
+                    </tr>
+                    <tr>
+                        <td>Street</td>
+                        <td>{{selectedEmployee.emergencyContacts[0].street}}</td>
+                    </tr>
+                    <tr>
+                        <td>City</td>
+                        <td>{{selectedEmployee.emergencyContacts[0].city}}</td>
+                    </tr>
+                     <tr>
+                        <td>State</td>
+                        <td>{{selectedEmployee.emergencyContacts[0].state}}</td>
+                    </tr>
+                    <tr>
+                        <td>Zip</td>
+                        <td>{{selectedEmployee.emergencyContacts[0].zip}}</td>
+                    </tr>
+                  
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="modal.close('Close click')">Close</button>
+        </div>
+    </ng-template>
+
+
+
+
+
+
+  <!--Delete Employee modal  -->
+  
+  <ng-template #DeleteEmployee let-modal2>
+   
+    <div class="modal-header">
+        <h5 class="modal-title"><img src="https://imgur.com/Kh1gwTq.png">Are you sure, delete this Employee ?</h5>
+       
+    </div>
+    <div class="modal-body">
+        <table>
+            <tr>
+                <th scope="col">First Name :</th>
+                <td>{{selectedEmployee.firstName}} </td>
+            </tr>
+            <tr>
+                <th scope="col">Last Name :</th>
+                <td>{{selectedEmployee.lastName}} </td>
+            </tr>
+            <tr>
+                <th scope="col">DateOfBirth :</th>
+                <td>{{selectedEmployee.dateOfBirth}} </td>
+            </tr>
+            <tr>
+                <th scope="col">Gender :</th>
+                <td>{{selectedEmployee.gender}} </td>
+            </tr>
+            <tr>
+                <th scope="col">EmailAddress :</th>
+                <td>{{selectedEmployee.emailAddress}} </td>
+            </tr>
+            <tr>
+                <th scope="col">Phone Number :</th>
+                <td>{{selectedEmployee.phoneNumber}} </td>
+            </tr>
+            <tr>
+                <th scope="col">Position :</th>
+                <td>{{selectedEmployee.position}} </td>
+            </tr>
+            <tr>
+                <th scope="col">Salary :</th>
+                <td>{{selectedEmployee.salary}} </td>
+            </tr>
+            <tr>
+                <th scope="col">DateHired :</th>
+                <td>{{selectedEmployee.dateHired}} </td>
+            </tr>
+            <tr>
+                <th scope="col">EmploymentStatus :</th>
+                <td>{{getEmpStatus(selectedEmployee?.employmentStatus)}} </td>
+            </tr>
+        </table>
+    </div>
+    <div class="mt-auto form-Group">
+    </div>
+    <div class="modal-footer d-flex justify-content-between">
+        <form (submit)="modal2.dismiss()">
+            <input type="hidden"  name="Id" #DeleteEmployeeId ngModel={{employees.id}} />
+            <button type="submit"  class="btn btn-danger" (click)="deleteEmployee(selectedEmployee?.id)">Delete Employee</button>
+        </form>
+        <button type="button" class="btn btn-secondary" (click)="modal2.close('Close click')">Close</button>
+        
+    </div>
+    </ng-template>

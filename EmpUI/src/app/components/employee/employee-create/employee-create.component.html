@@ -1,0 +1,285 @@
+<div class="container">
+    <div class="card m-3">
+        <div class="card-header">
+    <h3 class="text-center">Add Employee</h3>
+</div>
+<div class="from group m-3">
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm.value)" class="needs-validation" novalidate>
+        <div class="row">
+            <div class="col-6">
+        <div class="form-group">
+        <label for="fname" class="form-label">First Name : </label>
+        <input type="text" placeholder="First Name"  class="form-control" id="fname"formControlName="firstName" required>
+        <span *ngIf="employeeForm.controls['firstName'].invalid && employeeForm.controls['firstName'].touched " class="text-danger">FirstName is Required</span>
+    
+    </div>
+    </div>
+    <div class="col-6">
+      <div class="form-group">
+        <label for="lastName" class="form-label">Last Name : </label>
+        <input type="text" placeholder="Last Name" class="form-control" id="lname"formControlName="lastName" required>
+        <span *ngIf="employeeForm.controls['lastName'].invalid && employeeForm.controls['lastName'].touched " class="text-danger">LasttName is Required</span>
+      
+    </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="dob" class="form-label">Date of Birth : </label>
+                <input type="date"  class="form-control" id="dob"formControlName="dateOfBirth" required>
+                <span *ngIf="employeeForm.controls['dateOfBirth'].invalid && employeeForm.controls['dateOfBirth'].touched " class="text-danger">Date Of Birth is Required</span>
+
+            </div>
+        </div>
+        
+        <div class="col-6">
+            <label for="gender" class="form-label">Gender :</label>
+            <div class="form-group form-control">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="male" value="male" formControlName="gender">
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="female" value="female" formControlName="gender">
+                <label class="form-check-label" for="male">female</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="other" value="other" formControlName="gender">
+                <label class="form-check-label" for="male">other</label>
+            </div>
+            </div>
+            <span *ngIf="employeeForm.controls['gender'].invalid && employeeForm.controls['gender'].touched " class="text-danger">Gender is Required</span>
+
+        </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address : </label>
+                    <input type="email" placeholder="Email Address" class="form-control" id="email"formControlName="emailAddress" required>
+                    <span *ngIf="employeeForm.controls['emailAddress'].invalid && employeeForm.controls['emailAddress'].touched " class="text-danger">Email is Required</span>
+
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="phoneNumber" class="form-label">Phone Number : </label>
+                    <input type="tel" placeholder="Phone Number" class="form-control" id="phoneNumber"formControlName="phoneNumber" required>
+                    <span *ngIf="employeeForm.controls['phoneNumber'].invalid && employeeForm.controls['phoneNumber'].touched " class="text-danger">Phone Number is Required</span>
+
+                </div>
+            </div>
+        </div>
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="department" class="form-label">Department :</label>
+            <select class="form-select" id="department" formControlName="departmentID">
+                <option value="" disabled selected>Select Department</option>
+                <option *ngFor="let department of departmentList| keyvalue" [value]="department.key">{{ department.value }}</option>
+            </select>
+            <span *ngIf="employeeForm.controls['departmentID'].invalid && employeeForm.controls['departmentID'].touched " class="text-danger">Department is Required</span>
+        </div>
+    </div>
+
+
+    <div class="col-6">
+        <div class="form-group">
+            <label for="position" class="form-label">Position : </label>
+            <input type="text" placeholder="Position" class="form-control" id="position"formControlName="position" required>
+            <span *ngIf="employeeForm.controls['position'].invalid && employeeForm.controls['position'].touched " class="text-danger">Position is Required</span>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="salary" class="form-label">Salary : </label>
+            <input type="number" placeholder="Salary" class="form-control" id="salary"formControlName="salary" required>
+            <span *ngIf="employeeForm.controls['salary'].invalid && employeeForm.controls['salary'].touched " class="text-danger">Salary is Required</span>
+
+        </div>
+    </div>
+
+
+    <div class="col-6">
+        <div class="form-group">
+            <label for="dateHired" class="form-label">Date Hired : </label>
+            <input type="date"  class="form-control" id="dateHired"formControlName="dateHired" required>
+            <span *ngIf="employeeForm.controls['dateHired'].invalid && employeeForm.controls['dateHired'].touched " class="text-danger">Date Hired is Required</span>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label for="supervisor" class="form-label">Supervisor  :</label>
+            <select class="form-select" id="supervisor" formControlName="supervisorId">
+                <option value="" disabled selected>Select Supervisor</option>
+                <option *ngFor="let supervisor of supervisorList | keyvalue" [value]="supervisor.key ">{{ supervisor.value }}</option>
+            </select>
+            <span *ngIf="employeeForm.controls['supervisorId'].invalid && employeeForm.controls['supervisorId'].touched " class="text-danger">Supervisor is Required</span>
+
+        </div>
+    </div>
+
+
+    <div class="col-6">
+        <div class="form-group">
+            <label for="employmentStatus" class="form-label">Employment Status :</label>
+            <select class="form-select" id="employmentStatus" formControlName="employmentStatus">
+                <option value="" disabled selected>Select Employment Status</option>
+                <option *ngFor="let status of employmentStatuses" [value]="status.value">{{ status.name }}</option>
+            </select>
+            <span *ngIf="employeeForm.controls['employmentStatus'].invalid && employeeForm.controls['employmentStatus'].touched " class="text-danger">Employment Status is Required</span>
+        </div>
+    </div>
+</div>
+<!--dynamic input for address-->
+
+<form [formGroup]="employeeForm">
+    
+    <button type="button" class="btn btn-primary m-2" (click)="addAddress()">Add Address</button>
+  
+    <div formArrayName="addresses">
+      <div *ngFor="let address of addresses.controls; let i = index" [formGroupName]="i">
+        <div class="row">
+          <div class="col-3">
+            <div class="form-group">
+              <input type="text" placeholder="Street" class="form-control" id="street" formControlName="street" required>
+              <div *ngIf="employeeForm.get('street')?.invalid && employeeForm.get('street')?.touched">
+              <span *ngIF="employeeForm.get('street')?.error?.['required']">Street is required</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+               <input type="text" placeholder="City" class="form-control" id="city" formControlName="city" required>
+               <div *ngIf="employeeForm.get('city')?.invalid && employeeForm.get('city')?.touched">
+                <span *ngIF="employeeForm.get('city')?.error?.['required']">City is required</span>
+                </div>
+         
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <input type="text" placeholder="State" class="form-control" id="state" formControlName="state" required>
+              <div *ngIf="employeeForm.get('state')?.invalid && employeeForm.get('state')?.touched">
+                <span *ngIF="employeeForm.get('state')?.error?.['required']">State is required</span>
+                </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+             
+              <input type="text" placeholder="Zip" class="form-control" id="zip" formControlName="zip" required>
+              
+              <div *ngIf="employeeForm.get('zip')?.invalid && employeeForm.get('zip')?.touched">
+                <span *ngIF="employeeForm.get('zip')?.error?.['required']">Street is required</span>
+                </div>
+            </div>
+          </div>
+          <div class="col-1">
+            <div class="form-group">
+              <button type="button" class="btn btn-danger mb-2" (click)="deleteAddress(i)">Delete</button>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+<!--End-->
+
+<!-- Dynamic Emergency Contacts-->
+<button type="button" class="btn btn-primary m-2" (click)="addEmergencyContact()">Add Emergency Contact</button>
+
+<div formArrayName="emergencyContacts">
+  <div *ngFor="let emergency of emergencyContacts.controls; let i = index" [formGroupName]="i">
+    <div class="row">
+      <div class="col-2">
+        <div class="form-group">
+          <input type="text" placeholder="Person's Name"  class="form-control" id="personName" formControlName="personName" required>
+          <div *ngIf="employeeForm.get('personName')?.invalid && employeeForm.get('personName')?.touched">
+            <span *ngIF="employeeForm.get('personName')?.error?.['required']">PersonName is required</span>
+            </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <input type="tel" placeholder="Phone Number"  class="form-control" id="phoneNumber" formControlName="phoneNumber" required>
+          <div *ngIf="employeeForm.get('phoneNumber')?.invalid && employeeForm.get('phoneNumber')?.touched">
+            <span *ngIF="employeeForm.get('phoneNumber')?.error?.['required']">Street is required</span>
+            </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <input type="text" placeholder="Relation"  class="form-control" id="relation" formControlName="relation" required>
+          <div *ngIf="employeeForm.get('relation')?.invalid && employeeForm.get('relation')?.touched">
+            <span *ngIF="employeeForm.get('relation')?.error?.['required']">Street is required</span>
+            </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <input type="text" placeholder="Street"  class="form-control" id="street" formControlName="street" required>
+          <div *ngIf="employeeForm.get('street')?.invalid && employeeForm.get('street')?.touched">
+            <span *ngIF="employeeForm.get('street')?.error?.['required']">Street is required</span>
+            </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="form-group">
+          <input type="text" placeholder="City" class="form-control" id="city" formControlName="city" required>
+          <div *ngIf="employeeForm.get('city')?.invalid && employeeForm.get('city')?.touched">
+            <span *ngIF="employeeForm.get('city')?.error?.['required']">Street is required</span>
+            </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="form-group">
+          <input type="text" placeholder="State" class="form-control" id="state" formControlName="state" required>
+          <div *ngIf="employeeForm.get('state')?.invalid && employeeForm.get('state')?.touched">
+            <span *ngIF="employeeForm.get('state')?.error?.['required']">Street is required</span>
+            </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="form-group">
+          <input type="text" placeholder="Zip" class="form-control" id="zip" formControlName="zip" required>
+          <div *ngIf="employeeForm.get('zip')?.invalid && employeeForm.get('zip')?.touched">
+            <span *ngIF="employeeForm.get('zip')?.error?.['required']">Street is required</span>
+            </div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div class="form-group">
+          <button type="button" class="btn btn-danger mb-2" (click)="deleteEmergencyContact(i)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--End -->
+
+
+
+<button type="submit" [class.disabled]="employeeForm.invalid" class="btn btn-primary m-2 ">Submit</button>
+</form>
+</div>
+</div>
+</div>
+
+

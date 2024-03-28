@@ -1,0 +1,71 @@
+<!-- List Of Supervisor -->
+<div class="card">
+    <div class="card-header">
+      <h3>Supervisor List</h3>
+    </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+          <button class="btn btn-primary m-1 " [routerLink]="'/supervisor'">Create Supervisor</button>
+            <form class="form-Group">
+              <table class="table table-striped">
+              <thead class="bg-success">
+                <tr class="table-primary">   
+                   <th scope="col">Supervisor Name</th>
+                  <th scope="col">IsActive</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor="let item of supervisors.response"> 
+                  <td>{{item.name}}</td>
+                  <td>{{item.isActive ? "Yes":"No"}}</td>
+                  <td>
+                 <button class="btn btn-primary mx-2 my-2" value={{item.id}} [routerLink]="'/supervisor-edit/' + item.id">Edit</button>
+                 <button class="btn btn-danger mx-2 my-2"(click)="open(DeleteSupervisor,item.id)">
+                Delete</button>
+
+                </td>
+                </tr>
+              </tbody>
+            </table>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  
+
+
+    
+
+  <!--Delete Supervisor modal  -->
+  <ng-template #DeleteSupervisor let-modal2>
+   
+    <div class="modal-header">
+        <h5 class="modal-title"><img src="https://imgur.com/Kh1gwTq.png">Are you sure, delete this supervisor ?</h5>
+       
+    </div>
+    <div class="modal-body">
+        <table>
+            <tr>
+               
+                <th scope="col">Supervior Name :</th>
+                <td>{{supervisors.name}} </td>
+            </tr>
+            <tr><th scope="col">
+               Is Active :</th>
+                <td>{{supervisors.isActive ? "Yes":"No" }}
+            </td></tr>
+        </table>
+    </div>
+    <div class="mt-auto form-Group">
+    </div>
+    <div class="modal-footer d-flex justify-content-between">
+        <form (submit)="modal2.dismiss()">
+            <input type="hidden"  name="Id" #DeleteSuperviorId ngModel={{supervisors.id}} />
+            <button type="submit"  class="btn btn-danger" (click)="deleteSupervisor(DeleteSuperviorId.value)">Delete Supervior</button>
+        </form>
+        <button type="button" class="btn btn-secondary" (click)="modal2.close('Close click')">Close</button>
+    </div>
+    </ng-template>
